@@ -12,4 +12,8 @@ require 'rails_helper'
     expect(page).to have_field('author[last_name]')
     expect(page).to have_field('author[homepage]')
   end
+  it "should show validation errors " do
+  visit new_author_path
+  expect(Author.new(first_name:"Name", homepage:"Www")).to_not be_valid
+  end
  end
