@@ -12,4 +12,8 @@ RSpec.describe Author, type: :model do
     author = Author.new(first_name: "Na", last_name: "", homepage: "Www")
     expect(author).to_not be_valid
   end
+  it "should have a paper" do
+    @author = Author.new(first_name: "1", last_name: "2", homepage: "3")
+    expect(@author.papers.length).to eq(0)
+  end
 end

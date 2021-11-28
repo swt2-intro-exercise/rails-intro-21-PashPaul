@@ -15,4 +15,8 @@ RSpec.describe Paper, type: :model do
     paper = Paper.new(title: "1", venue: "2")
     expect(paper).to_not be_valid
   end
+  it "should have an author" do
+    @paper = Paper.new(title: "1", venue: "2", year: 3)
+    expect(@paper.authors.length).to eq(0)
+  end
 end
