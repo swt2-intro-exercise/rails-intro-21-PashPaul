@@ -8,4 +8,8 @@ RSpec.describe Author, type: :model do
     expect(author.homepage).to eq("Www")
     expect(author.name).to eq("Na Me")
   end
+  it "should not validate without last name" do
+    author = Author.new(first_name: "Na", last_name: "", homepage: "Www")
+    expect(author).to_not be_valid
+  end
 end
